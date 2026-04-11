@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Sobre", href: "#sobre" },
   { label: "Funcionalidades", href: "#funcionalidades" },
-  { label: "Seguranca", href: "#seguranca" },
+  { label: "Segurança", href: "#seguranca" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -17,7 +17,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -26,7 +26,7 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-sm"
+          ? "bg-white/90 backdrop-blur-xl shadow-sm shadow-eva-purple-900/5"
           : "bg-transparent"
       }`}
     >
@@ -35,7 +35,7 @@ export function Header() {
           {/* Logo */}
           <a
             href="#"
-            className="font-display text-2xl font-bold text-eva-purple-900"
+            className="font-display text-2xl font-bold text-eva-purple-900 tracking-tight"
           >
             ev<span className="text-eva-purple-500">a</span>
           </a>
@@ -46,7 +46,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-eva-purple-500 transition-colors"
+                className="text-sm font-medium text-gray-600 hover:text-eva-purple-600 transition-colors duration-150"
               >
                 {link.label}
               </a>
@@ -56,7 +56,7 @@ export function Header() {
 
           {/* Menu Mobile Toggle */}
           <button
-            className="md:hidden text-eva-purple-900"
+            className="md:hidden text-eva-purple-900 p-1"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           >
@@ -66,18 +66,18 @@ export function Header() {
 
         {/* Nav Mobile */}
         {menuOpen && (
-          <nav className="md:hidden pb-4 flex flex-col gap-4">
+          <nav className="md:hidden pb-5 border-t border-eva-purple-100 pt-4 flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-eva-purple-500"
+                className="text-sm font-medium text-gray-700 hover:text-eva-purple-500 transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <Button size="sm">Baixe o App</Button>
+            <Button size="sm" className="self-start">Baixe o App</Button>
           </nav>
         )}
       </Container>

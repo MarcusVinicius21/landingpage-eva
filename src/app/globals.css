@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Fontes */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-outfit), system-ui, sans-serif;
+
+  /* Cores principais EVA */
+  --color-eva-purple-900: #2D0A4E;
+  --color-eva-purple-700: #5B2D8E;
+  --color-eva-purple-500: #7C3AED;
+  --color-eva-purple-400: #9F7AEA;
+  --color-eva-purple-300: #C4B5FD;
+
+  /* Lilás */
+  --color-eva-lilac-200: #D8B4FE;
+  --color-eva-lilac-100: #EDE9FE;
+
+  /* Neutros */
+  --color-eva-cream: #FAF7F2;
+  --color-eva-dark: #1A0530;
+
+  /* Acentos */
+  --color-eva-pink: #F9A8D4;
+  --color-eva-green-safe: #10B981;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #C4B5FD;
+    color: #2D0A4E;
+  }
 }

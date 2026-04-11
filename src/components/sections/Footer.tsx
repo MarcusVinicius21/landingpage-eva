@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { EvaLogo } from "@/components/ui/EvaLogo";
 import { Heart, Phone } from "lucide-react";
 
 export function Footer() {
@@ -18,9 +19,7 @@ export function Footer() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Brand */}
             <div>
-              <span className="font-display text-2xl font-bold tracking-tight">
-                ev<span className="text-eva-purple-400">a</span>
-              </span>
+              <EvaLogo variant="white" size="md" />
               <p className="mt-4 text-sm text-white/50 leading-relaxed">
                 Escuta. Vigilância. Ação.
               </p>

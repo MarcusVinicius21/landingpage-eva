@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { EvaLogo } from "@/components/ui/EvaLogo";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -33,11 +34,8 @@ export function Header() {
       <Container>
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <a
-            href="#"
-            className="font-display text-2xl font-bold text-eva-purple-900 tracking-tight"
-          >
-            ev<span className="text-eva-purple-500">a</span>
+          <a href="#">
+            <EvaLogo variant="dark" size="md" />
           </a>
 
           {/* Nav Desktop */}

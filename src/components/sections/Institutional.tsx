@@ -6,29 +6,57 @@ import { INSTITUTIONAL } from "@/lib/constants";
 
 export function Institutional() {
   return (
-    <section id="quem-somos">
+    <section id="quem-somos" className="py-4">
       <Container>
-        {/* Texto centralizado */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6 leading-tight">
-            {INSTITUTIONAL.title}{" "}
-            <span className="text-purple-600">{INSTITUTIONAL.titleAccent}</span>
-          </h2>
-          <p className="text-lg text-slate-600 font-light leading-relaxed">
-            {INSTITUTIONAL.text}
-          </p>
-          <blockquote className="mt-8 text-base text-slate-500 italic font-light leading-relaxed border-l-2 border-purple-200 pl-5 text-left max-w-xl mx-auto">
-            {INSTITUTIONAL.mission}
-          </blockquote>
+
+        {/* Bloco editorial principal */}
+        <div className="mb-14 md:mb-20">
+          {/* Título manifesto — peso máximo */}
+          <div className="max-w-4xl mb-10">
+            <h2 className="font-display text-5xl md:text-6xl font-bold tracking-tight text-eva-purple-900 leading-[1.05] mb-2">
+              {INSTITUTIONAL.title}
+            </h2>
+            <h2 className="font-display text-5xl md:text-6xl font-bold tracking-tight text-eva-purple-400 leading-[1.05]">
+              {INSTITUTIONAL.titleAccent}
+            </h2>
+          </div>
+
+          {/* Layout 2 colunas: corpo + missão */}
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+            <p className="text-xl text-slate-500 font-light leading-relaxed">
+              {INSTITUTIONAL.text}
+            </p>
+
+            {/* Missão — tratada como manifesto */}
+            <div className="relative pl-6">
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-eva-purple-400 to-eva-lilac-200 rounded-full" />
+              <p className="text-lg text-eva-purple-700/80 italic leading-relaxed font-light">
+                &ldquo;{INSTITUTIONAL.mission}&rdquo;
+              </p>
+              <div className="mt-6 flex items-center gap-3">
+                <span className="w-8 h-[2px] bg-eva-purple-300/60 rounded-full" />
+                <span className="text-xs font-semibold text-eva-purple-400/70 uppercase tracking-widest">
+                  Projeto EVA
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Imagem editorial widescreen */}
         {/* Imagem: /public/images/brand/equipe-office.jpg — 1400×600px */}
-        <ImagePlaceholder
-          text="equipe-office.jpg (1400x600)"
-          aspectRatio="widescreen"
-          className="w-full rounded-[40px] border border-slate-100 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.05)]"
-        />
+        <div className="relative">
+          <ImagePlaceholder
+            text="equipe-office.jpg (1400x600)"
+            aspectRatio="widescreen"
+            className="w-full rounded-[40px] border border-eva-purple-100/30 shadow-[0_24px_48px_-12px_rgba(45,10,78,0.06)]"
+          />
+          {/* Caption sutil */}
+          <p className="mt-4 text-center text-xs text-slate-300 font-light tracking-wide uppercase">
+            Equipe do Projeto EVA
+          </p>
+        </div>
+
       </Container>
     </section>
   );

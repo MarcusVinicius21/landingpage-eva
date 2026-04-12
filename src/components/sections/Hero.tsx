@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { HERO } from "@/lib/constants";
 import { Shield } from "lucide-react";
 
@@ -74,11 +74,13 @@ export function Hero() {
             <div className="w-full max-w-[300px] sm:max-w-[320px] relative">
               {/* Halo suave atrás do mockup */}
               <div className="absolute -inset-8 bg-eva-purple-300/10 rounded-full blur-3xl pointer-events-none" />
-              {/* Imagem: /public/images/hero/mockup-app-principal.png — 800×1600px */}
-              <ImagePlaceholder
-                aspectRatio="portrait"
-                className="rounded-[40px] shadow-[0_32px_64px_-16px_rgba(45,10,78,0.12)] border-[10px] border-white"
-                text="mockup-app-principal.png (800x1600)"
+              <Image
+                src="/images/hero/mockup-app-principal.png"
+                alt="Interface do aplicativo EVA"
+                width={800}
+                height={1600}
+                priority
+                className="rounded-[40px] shadow-[0_32px_64px_-16px_rgba(45,10,78,0.12)] border-[10px] border-white w-full h-auto"
               />
             </div>
           </div>

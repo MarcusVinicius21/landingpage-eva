@@ -7,15 +7,28 @@ import { Badge } from "@/components/ui/Badge";
 import { HERO } from "@/lib/constants";
 import { Shield } from "lucide-react";
 
+
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-32 bg-eva-cream overflow-hidden">
-      {/* Blob lilás ao fundo */}
-      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-eva-lilac-200/20 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[500px] h-[500px] bg-eva-purple-300/10 rounded-full blur-[100px] pointer-events-none -z-10" />
+    <section className="relative isolate pt-32 pb-0 sm:pt-36 sm:pb-0 bg-eva-cream overflow-hidden">
+      {/* Arte de fundo — hero-background-soft-curve.png */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/hero/hero-background-soft-curve.png"
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover object-right-bottom"
+        />
+        {/* Overlay esquerdo — protege legibilidade do texto, não toca o lado direito */}
+        <div className="absolute inset-0 bg-gradient-to-r from-eva-cream/80 via-eva-cream/25 to-transparent" />
+        {/* Fade inferior — dissolve a curva para o bg da próxima seção */}
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-slate-50" />
+      </div>
 
       <Container>
-        <div className="grid lg:grid-cols-2 gap-14 xl:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-14 xl:gap-16 items-start">
 
           {/* Coluna de texto */}
           <div className="order-2 lg:order-1">
@@ -70,18 +83,19 @@ export function Hero() {
           </div>
 
           {/* Coluna do mockup */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="w-full max-w-[360px] sm:max-w-[400px] xl:max-w-[440px] relative">
-              {/* Halo suave atrás do mockup */}
-              <div className="absolute -inset-12 bg-eva-purple-400/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end self-start">
+            <div className="w-full max-w-[280px] sm:max-w-[310px] xl:max-w-[350px] relative lg:-translate-y-8 xl:-translate-y-10">
+              {/* Glow orgânico — dois círculos fixos, não cápsula */}
+              <div className="absolute top-[8%] left-1/2 -translate-x-1/2 w-[220px] h-[220px] bg-eva-purple-400/20 rounded-full blur-[60px] pointer-events-none -z-10" />
+              <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-[160px] h-[160px] bg-eva-lilac-200/25 rounded-full blur-[45px] pointer-events-none -z-10" />
               <Image
                 src="/images/hero/mockup-app-principal.png"
                 alt="Interface do aplicativo EVA"
                 width={800}
                 height={1600}
                 priority
-                sizes="(max-width: 768px) 360px, (max-width: 1280px) 400px, 440px"
-                className="w-full h-auto drop-shadow-2xl relative"
+                sizes="(max-width: 768px) 305px, (max-width: 1280px) 340px, 375px"
+                className="w-full h-auto drop-shadow-2xl"
               />
             </div>
           </div>

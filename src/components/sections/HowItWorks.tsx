@@ -1,79 +1,67 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { FadeIn } from "@/components/ui/FadeIn";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { HOW_IT_WORKS } from "@/lib/constants";
 
+const placeholders = [
+  "feature-foto-1.jpg",
+  "feature-foto-2.jpg",
+  "feature-foto-3.jpg",
+  "feature-foto-4.jpg",
+];
+
 export function HowItWorks() {
-  const { steps } = HOW_IT_WORKS;
-
   return (
-    <section
-      id="como-funciona"
-      className="py-20 sm:py-28 bg-eva-cream overflow-x-hidden"
-    >
+    <section id="como-funciona">
       <Container>
-        {/* Header */}
-        <FadeIn direction="up">
-          <div className="text-center max-w-xl mx-auto mb-16">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-eva-purple-900 leading-tight tracking-tight">
-              {HOW_IT_WORKS.title}
-            </h2>
-            <p className="mt-4 text-gray-500 text-base sm:text-lg leading-relaxed">
-              {HOW_IT_WORKS.subtitle}
-            </p>
-          </div>
-        </FadeIn>
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">
+            {HOW_IT_WORKS.title}
+          </h2>
+          <p className="text-lg text-slate-600 font-light leading-relaxed">
+            {HOW_IT_WORKS.subtitle}
+          </p>
+        </div>
 
-        {/* Steps — layout limpo */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-          {steps.map((step, i) => (
-            <FadeIn
+        {/* Grid — adapta para 4 steps do constants */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {HOW_IT_WORKS.steps.map((step, index) => (
+            <div
               key={step.number}
-              direction="up"
-              delay={i * 0.1}
-              className="relative flex flex-col items-center text-center"
+              className="bg-white rounded-[32px] overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.05)] border border-slate-100 flex flex-col group transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(124,58,237,0.1)]"
             >
-              {/* Número */}
-              <div className="mb-5">
-                <div
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center font-display font-bold text-lg ${
-                    i === 0
-                      ? "bg-eva-purple-500 text-white shadow-md shadow-eva-purple-500/20"
-                      : "bg-white text-eva-purple-500 border border-eva-purple-300/40"
-                  }`}
-                >
-                  {step.number}
-                </div>
+              {/* Imagem com overlay e título sobreposto */}
+              <div className="relative aspect-square w-full overflow-hidden">
+                {/* Imagem: /public/images/features/{placeholder} — 800×800px */}
+                <ImagePlaceholder
+                  text={placeholders[index % placeholders.length]}
+                  aspectRatio="square"
+                  className="absolute inset-0 group-hover:scale-105 transition-transform duration-700 rounded-none border-0"
+                />
+                {/* Degradê obrigatório */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/30 to-transparent pointer-events-none" />
+                <h3 className="absolute bottom-6 left-6 right-6 text-xl font-bold text-white leading-snug">
+                  {step.title}
+                </h3>
               </div>
 
-              <h3 className="font-display font-semibold text-eva-purple-900 text-[15px] mb-2">
-                {step.title}
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-[240px]">
-                {step.description}
-              </p>
-
-              {/* Seta mobile entre itens */}
-              {i < steps.length - 1 && (
-                <div className="sm:hidden mt-6 text-eva-purple-300/60 text-sm">
-                  ↓
-                </div>
-              )}
-            </FadeIn>
+              {/* Texto descritivo */}
+              <div className="p-7 bg-white flex-1">
+                <p className="text-slate-600 font-light leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Frase de fechamento */}
-        <FadeIn direction="up" delay={0.4}>
-          <div className="mt-16 text-center">
-            <blockquote className="inline-block max-w-lg">
-              <p className="text-eva-purple-700 text-base sm:text-lg font-medium italic leading-relaxed">
-                &ldquo;{HOW_IT_WORKS.closingQuote}&rdquo;
-              </p>
-            </blockquote>
-          </div>
-        </FadeIn>
+        <div className="mt-16 text-center">
+          <p className="text-lg text-slate-500 font-light italic">
+            &ldquo;{HOW_IT_WORKS.closingQuote}&rdquo;
+          </p>
+        </div>
       </Container>
     </section>
   );

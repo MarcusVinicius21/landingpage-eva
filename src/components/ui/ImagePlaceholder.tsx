@@ -1,46 +1,32 @@
-import { ImageIcon } from "lucide-react";
+import React from 'react';
 
 interface ImagePlaceholderProps {
-  /** Caminho sugerido para o arquivo final: ex. /images/hero/hero-main.png */
-  suggestedPath: string;
-  /** Label curta para o placeholder */
-  label?: string;
-  /** Aspect ratio class: ex. "aspect-video", "aspect-square", "aspect-[3/4]" */
-  aspect?: string;
-  /** Classes adicionais */
+  text: string;
   className?: string;
+  aspectRatio?: 'square' | 'video' | 'portrait' | 'widescreen' | 'auto';
 }
 
-export function ImagePlaceholder({
-  suggestedPath,
-  label,
-  aspect = "aspect-video",
-  className = "",
-}: ImagePlaceholderProps) {
+export function ImagePlaceholder({ text, className = '', aspectRatio = 'auto' }: ImagePlaceholderProps) {
+  const aspectClasses = {
+    square: 'aspect-square',
+    video: 'aspect-video',
+    portrait: 'aspect-[4/5]',
+    widescreen: 'aspect-[21/9]',
+    auto: 'h-full w-full'
+  };
+
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-eva-lilac-100/60 to-eva-purple-300/10 border border-eva-purple-300/15 ${aspect} ${className}`}
+      className={`bg-purple-100/50 border border-purple-200/50 flex flex-col items-center justify-center text-purple-400 overflow-hidden ${aspectClasses[aspectRatio]} ${className}`}
     >
-      {/* Glow sutil */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-eva-lilac-200/20 pointer-events-none" />
-
-      {/* Conteúdo central */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6">
-        <div className="w-12 h-12 rounded-xl bg-white/70 border border-eva-purple-300/20 flex items-center justify-center">
-          <ImageIcon
-            className="w-5 h-5 text-eva-purple-400"
-            strokeWidth={1.5}
-          />
-        </div>
-        {label && (
-          <span className="text-xs font-medium text-eva-purple-400/70 text-center">
-            {label}
-          </span>
-        )}
-      </div>
-
-      {/* Referência do path — visível apenas em dev */}
-      {/* Caminho sugerido: {suggestedPath} */}
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 mb-3 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+        <circle cx="9" cy="9" r="2"/>
+        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+      </svg>
+      <span className="text-sm font-semibold tracking-wider uppercase text-center px-4 opacity-70">
+        {text}
+      </span>
     </div>
   );
 }

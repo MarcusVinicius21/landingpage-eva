@@ -1,25 +1,23 @@
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
-import { AboutEva } from "@/components/sections/AboutEva";
+import { About } from "@/components/sections/About";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Protection } from "@/components/sections/Protection";
 import { Institutional } from "@/components/sections/Institutional";
-import { Download } from "@/components/sections/Download";
-import { Footer } from "@/components/sections/Footer";
+import { CtaAndFooter } from "@/components/sections/CtaAndFooter";
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-purple-200 selection:text-purple-900">
       <Header />
-      <main>
+      <div className="flex flex-col gap-y-24 md:gap-y-32 pb-0">
         <Hero />
-        <AboutEva />
+        <About />
         <HowItWorks />
         <Protection />
         <Institutional />
-        <Download />
-      </main>
-      <Footer />
-    </>
+      </div>
+      <CtaAndFooter />
+    </main>
   );
 }

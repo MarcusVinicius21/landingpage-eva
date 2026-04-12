@@ -1,72 +1,49 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { PROTECTION } from "@/lib/constants";
-import {
-  EyeOff,
-  Zap,
-  Heart,
-  FileText,
-  MapPin,
-  Lock,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-
-const iconMap: Record<string, LucideIcon> = {
-  EyeOff,
-  Zap,
-  Heart,
-  FileText,
-  MapPin,
-  Lock,
-};
 
 export function Protection() {
   return (
-    <section id="protecao" className="py-20 sm:py-28 bg-white overflow-x-hidden">
+    <section id="protecao">
       <Container>
-        {/* Header */}
-        <FadeIn direction="up">
-          <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-eva-purple-900 leading-tight tracking-tight">
+        <div className="bg-white rounded-[40px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.03)] border border-slate-100 p-10 md:p-20 relative flex flex-col md:flex-row items-center gap-16 overflow-visible">
+
+          {/* Coluna esquerda — texto */}
+          <div className="flex-1 relative z-10">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">
               {PROTECTION.title}
             </h2>
-            <p className="mt-4 text-gray-500 text-base sm:text-lg leading-relaxed">
+            <p className="text-lg text-slate-600 font-light leading-relaxed mb-8">
               {PROTECTION.subtitle}
             </p>
+            <ul className="space-y-4">
+              {PROTECTION.highlights.map((item) => (
+                <li key={item.title} className="flex items-center gap-3 text-slate-700 font-medium">
+                  <div className="w-2 h-2 rounded-full bg-purple-500 shrink-0" />
+                  {item.title}
+                </li>
+              ))}
+            </ul>
           </div>
-        </FadeIn>
 
-        {/* Grid de destaques — 2×3 no desktop, clean e arejado */}
-        <StaggerContainer
-          staggerDelay={0.06}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
-        >
-          {PROTECTION.highlights.map((item) => {
-            const Icon = iconMap[item.icon] ?? Heart;
-            return (
-              <StaggerItem key={item.title}>
-                <div className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-eva-cream/50 border border-eva-purple-100/40 hover:border-eva-purple-200/50 transition-colors duration-300">
-                  <div className="w-10 h-10 rounded-xl bg-eva-lilac-100 border border-eva-lilac-200/40 flex items-center justify-center shrink-0">
-                    <Icon
-                      className="w-5 h-5 text-eva-purple-500"
-                      strokeWidth={1.5}
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-display font-semibold text-eva-purple-900 text-[15px] mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </StaggerItem>
-            );
-          })}
-        </StaggerContainer>
+          {/* Coluna direita — Breakout */}
+          <div className="flex-1 relative w-full h-[400px] md:h-[500px]">
+            {/* Elemento Breakout — estoura o container */}
+            <div className="absolute -top-16 -right-8 w-full md:w-[120%] h-[115%] z-20 pointer-events-none">
+              {/* Imagem: /public/images/brand/mulher-saindo-card.png — 800×1000px PNG sem fundo */}
+              <ImagePlaceholder
+                text="mulher-saindo-card.png (PNG Transparente)"
+                aspectRatio="auto"
+                className="bg-transparent border-dashed border-2 border-purple-300 !text-purple-600"
+              />
+            </div>
+            {/* Base roxa de apoio */}
+            <div className="absolute inset-0 bg-purple-50 rounded-[32px] w-full h-full -z-10" />
+          </div>
+
+        </div>
       </Container>
     </section>
   );

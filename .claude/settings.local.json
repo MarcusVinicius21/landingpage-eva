@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip -l \"C:/Users/marcu/Downloads/trampos/EVA/prints conceituais \\(referencia visual e identidade visual\\) obrigatória.zip\")",
+      "Bash(mkdir -p /tmp/eva-prints)",
+      "Bash(unzip -o \"C:/Users/marcu/Downloads/trampos/EVA/prints conceituais \\(referencia visual e identidade visual\\) obrigatória.zip\" -d /tmp/eva-prints/)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npx create-next-app@latest eva-temp-setup --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --yes)",
+      "Bash(cp -r \"C:/Users/marcu/Downloads/trampos/EVA/eva-temp-setup/.\" \"C:/Users/marcu/Downloads/trampos/EVA/EvaLandimPage/\")",
+      "Bash(rm -rf \"C:/Users/marcu/Downloads/trampos/EVA/eva-temp-setup\")",
+      "Bash(npm install:*)",
+      "Bash(cp \"C:/Users/marcu/AppData/Local/Temp/eva-prints/WhatsApp Image 2026-04-10 at 22.51.10.jpeg\" \"C:/Users/marcu/Downloads/trampos/EVA/EvaLandimPage/public/images/brand/eva-concept-01.jpeg\")",
+      "Bash(cp \"C:/Users/marcu/AppData/Local/Temp/eva-prints/WhatsApp Image 2026-04-10 at 22.51.10 \\(1\\).jpeg\" \"C:/Users/marcu/Downloads/trampos/EVA/EvaLandimPage/public/images/brand/eva-concept-02.jpeg\")",
+      "Bash(cp \"C:/Users/marcu/AppData/Local/Temp/eva-prints/WhatsApp Image 2026-04-10 at 22.51.10 \\(2\\).jpeg\" \"C:/Users/marcu/Downloads/trampos/EVA/EvaLandimPage/public/images/brand/eva-concept-03.jpeg\")",
+      "Bash(cp \"C:/Users/marcu/AppData/Local/Temp/eva-prints/WhatsApp Image 2026-04-10 at 22.51.10 \\(3\\).jpeg\" \"C:/Users/marcu/Downloads/trampos/EVA/EvaLandimPage/public/images/brand/eva-concept-04.jpeg\")",
+      "Bash(cp \"C:/Users/marcu/AppData/Local/Temp/eva-prints/WhatsApp Image 2026-04-10 at 22.51.10 \\(4\\).jpeg\" \"C:/Users/marcu/Downloads/trampos/EVA/EvaLandimPage/public/images/brand/eva-concept-05.jpeg\")",
+      "Bash(cp \"C:/Users/marcu/Downloads/trampos/EVA/Arquitetura LandimPage/ARQUITETURA_SITE_EVA.md\" \"C:/Users/marcu/Downloads/trampos/EVA/EvaLandimPage/docs/\")",
+      "Bash(cp \"C:/Users/marcu/Downloads/trampos/EVA/Arquitetura LandimPage/STRUCTURE_SITE_EVA.md\" \"C:/Users/marcu/Downloads/trampos/EVA/EvaLandimPage/docs/\")",
+      "Bash(cp \"C:/Users/marcu/Downloads/trampos/EVA/Arquitetura LandimPage/tutorial_etapa1_site_eva.md\" \"C:/Users/marcu/Downloads/trampos/EVA/EvaLandimPage/docs/\")",
+      "Bash(npm run:*)",
+      "Read(//c/Users/marcu/Downloads/**)",
+      "Bash(python -c ':*)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}

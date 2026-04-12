@@ -1,60 +1,51 @@
 import { Container } from "@/components/ui/Container";
 import { EvaLogo } from "@/components/ui/EvaLogo";
-import { Heart, Phone } from "lucide-react";
+import { FOOTER, SITE } from "@/lib/constants";
+import { Phone, Heart } from "lucide-react";
 
 export function Footer() {
   return (
     <footer id="contato" className="relative bg-eva-dark text-white">
-
-      {/* Ponte visual: gradiente de transição do creme para o dark */}
-      <div
-        className="absolute -top-16 left-0 right-0 h-16 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, #FAF7F2 0%, #1A0530 100%)",
-        }}
-      />
-
-      {/* Faixa institucional */}
-      <div className="relative border-b border-white/5 py-4">
+      {/* Faixa com slogan */}
+      <div className="border-b border-white/5 py-4">
         <Container>
-          <p className="text-center text-[11px] text-eva-purple-300/50 tracking-[0.18em] uppercase font-medium">
-            Coragem para agir. Apoio para vencer.
+          <p className="text-center text-[11px] text-eva-purple-300/40 tracking-[0.18em] uppercase font-medium">
+            {SITE.supportLine}
           </p>
         </Container>
       </div>
 
       {/* Conteúdo principal */}
-      <div className="relative py-14">
+      <div className="py-14">
         <Container>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-
             {/* Brand */}
             <div>
               <EvaLogo variant="white" size="md" />
-              <p className="mt-4 text-[13px] text-white/45 leading-relaxed">
-                Escuta. Vigilância. Ação.
+              <p className="mt-4 text-[13px] text-white/40 leading-relaxed">
+                {SITE.tagline}
               </p>
-              <p className="mt-1 text-[13px] text-white/30 leading-relaxed">
-                Sistema Inteligente de Segurança Feminina
+              <p className="mt-1 text-[13px] text-white/25 leading-relaxed">
+                {SITE.description}
               </p>
             </div>
 
             {/* Navegação */}
             <div>
-              <h3 className="font-semibold text-[10px] uppercase tracking-[0.18em] text-white/25 mb-5">
+              <h3 className="font-semibold text-[10px] uppercase tracking-[0.18em] text-white/20 mb-5">
                 Navegação
               </h3>
               <ul className="space-y-3">
                 {[
-                  { label: "Sobre", href: "#sobre" },
-                  { label: "Funcionalidades", href: "#funcionalidades" },
-                  { label: "Segurança", href: "#seguranca" },
+                  { label: "O EVA", href: "#o-eva" },
+                  { label: "Como Funciona", href: "#como-funciona" },
+                  { label: "Proteção", href: "#protecao" },
+                  { label: "Quem Somos", href: "#quem-somos" },
                 ].map(({ label, href }) => (
                   <li key={href}>
                     <a
                       href={href}
-                      className="text-[13px] text-white/50 hover:text-white/90 transition-colors"
+                      className="text-[13px] text-white/45 hover:text-white/80 transition-colors"
                     >
                       {label}
                     </a>
@@ -63,59 +54,65 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Ajuda */}
+            {/* Emergência */}
             <div>
-              <h3 className="font-semibold text-[10px] uppercase tracking-[0.18em] text-white/25 mb-5">
-                Ajuda
+              <h3 className="font-semibold text-[10px] uppercase tracking-[0.18em] text-white/20 mb-5">
+                {FOOTER.emergency.title}
               </h3>
               <ul className="space-y-3.5">
-                <li className="flex items-start gap-2">
-                  <Phone
-                    className="w-3.5 h-3.5 text-eva-purple-400/70 mt-0.5 shrink-0"
-                    strokeWidth={1.5}
-                  />
-                  <span className="text-[13px] leading-snug">
-                    <span className="text-eva-purple-300 font-semibold">180</span>
-                    <span className="text-white/40">
-                      {" "}— Central de Atendimento à Mulher
+                {FOOTER.helpLines.map(({ number, label }) => (
+                  <li key={number} className="flex items-start gap-2">
+                    <Phone
+                      className="w-3.5 h-3.5 text-eva-purple-400/60 mt-0.5 shrink-0"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-[13px] leading-snug">
+                      <span className="text-eva-purple-300 font-semibold">
+                        {number}
+                      </span>
+                      <span className="text-white/35"> — {label}</span>
                     </span>
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Phone
-                    className="w-3.5 h-3.5 text-eva-purple-400/70 mt-0.5 shrink-0"
-                    strokeWidth={1.5}
-                  />
-                  <span className="text-[13px] leading-snug">
-                    <span className="text-eva-purple-300 font-semibold">190</span>
-                    <span className="text-white/40"> — Polícia Militar</span>
-                  </span>
-                </li>
+                  </li>
+                ))}
               </ul>
+              <p className="mt-4 text-[12px] text-white/25 leading-relaxed">
+                {FOOTER.emergency.text}
+              </p>
             </div>
 
-            {/* Importante */}
+            {/* Importante + Links */}
             <div>
-              <h3 className="font-semibold text-[10px] uppercase tracking-[0.18em] text-white/25 mb-5">
-                Importante
+              <h3 className="font-semibold text-[10px] uppercase tracking-[0.18em] text-white/20 mb-5">
+                Legal
               </h3>
-              <p className="text-[13px] text-white/50 leading-relaxed">
-                Violência contra a mulher é crime.{" "}
-                <span className="text-eva-purple-300 font-medium">
-                  Denuncie.
-                </span>
+              <ul className="space-y-2.5 mb-6">
+                {FOOTER.links.map(({ label, href }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className="text-[13px] text-white/40 hover:text-white/70 transition-colors"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[12px] text-white/30 leading-relaxed">
+                {FOOTER.emergency.institutional}
               </p>
-              <div className="mt-5 flex items-center gap-2 text-[13px] text-eva-pink/70">
-                <Heart className="w-3.5 h-3.5 fill-current shrink-0" />
+              <div className="mt-4 flex items-center gap-2 text-[12px] text-eva-pink/60">
+                <Heart className="w-3 h-3 fill-current shrink-0" />
                 <span>Você não está sozinha</span>
               </div>
             </div>
           </div>
 
           {/* Bottom bar */}
-          <div className="mt-12 pt-7 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-white/20">
-            <p>© {new Date().getFullYear()} EVA. Todos os direitos reservados.</p>
-            <p className="text-eva-purple-400/35 tracking-wide">
+          <div className="mt-12 pt-7 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-white/15">
+            <p>
+              © {new Date().getFullYear()} EVA. Todos os direitos reservados.
+            </p>
+            <p className="text-eva-purple-400/25 tracking-wide">
               eva · escuta · vigilância · ação
             </p>
           </div>

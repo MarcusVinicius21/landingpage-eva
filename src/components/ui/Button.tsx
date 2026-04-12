@@ -20,10 +20,10 @@ export function Button({
 
   const variants = {
     primary:
-      "bg-eva-purple-500 text-white hover:bg-eva-purple-700 shadow-lg shadow-eva-purple-500/20",
+      "bg-eva-purple-500 text-white hover:bg-eva-purple-700 shadow-md shadow-eva-purple-500/15",
     secondary:
-      "border-2 border-eva-purple-500 text-eva-purple-500 hover:bg-eva-purple-500 hover:text-white",
-    ghost: "text-eva-purple-500 hover:bg-eva-lilac-100",
+      "border border-eva-purple-300 text-eva-purple-700 hover:bg-eva-lilac-100 hover:border-eva-purple-400",
+    ghost: "text-eva-purple-500 hover:bg-eva-lilac-100/60",
   };
 
   const sizes = {

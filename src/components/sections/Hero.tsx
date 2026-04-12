@@ -71,16 +71,17 @@ export function Hero() {
 
           {/* Coluna do mockup */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="w-full max-w-[300px] sm:max-w-[320px] relative">
+            <div className="w-full max-w-[360px] sm:max-w-[400px] xl:max-w-[440px] relative">
               {/* Halo suave atrás do mockup */}
-              <div className="absolute -inset-8 bg-eva-purple-300/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -inset-12 bg-eva-purple-400/15 rounded-full blur-3xl pointer-events-none" />
               <Image
                 src="/images/hero/mockup-app-principal.png"
                 alt="Interface do aplicativo EVA"
                 width={800}
                 height={1600}
                 priority
-                className="rounded-[40px] shadow-[0_32px_64px_-16px_rgba(45,10,78,0.12)] border-[10px] border-white w-full h-auto"
+                sizes="(max-width: 768px) 360px, (max-width: 1280px) 400px, 440px"
+                className="w-full h-auto drop-shadow-2xl relative"
               />
             </div>
           </div>

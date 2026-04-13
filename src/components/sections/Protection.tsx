@@ -62,7 +62,7 @@ export function Protection() {
             </div>
           </div>
 
-          <div className="flex-1 relative w-full h-[420px] md:h-auto md:min-h-[680px] shrink-0 md:max-w-[44%] md:self-stretch">
+          <div className="flex-1 relative w-full h-[520px] md:h-auto md:min-h-[680px] shrink-0 md:max-w-[44%] md:self-stretch">
             {/* Base lilás de apoio */}
             <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-eva-lilac-100/68 via-white to-eva-purple-300/12 -z-10" />
 

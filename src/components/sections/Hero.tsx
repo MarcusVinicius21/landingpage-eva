@@ -11,7 +11,7 @@ import { Shield } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative isolate pt-32 pb-0 sm:pt-36 sm:pb-0 bg-eva-cream overflow-hidden">
-      {/* Arte de fundo — hero-background-soft-curve.png */}
+      {/* Arte de fundo — hero-background-soft-curve.webp */}
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/hero/hero-background-soft-curve.webp"
@@ -19,11 +19,13 @@ export function Hero() {
           fill
           sizes="100vw"
           priority
-          className="object-cover object-right-bottom"
+          className="object-cover object-center sm:object-right-bottom"
         />
-        {/* Overlay esquerdo — protege legibilidade do texto, não toca o lado direito */}
-        <div className="absolute inset-0 bg-gradient-to-r from-eva-cream/80 via-eva-cream/25 to-transparent" />
-        {/* Fade inferior — dissolve a curva para o bg da próxima seção */}
+        {/* Overlay mobile — fade suave do topo, deixa a arte respirar no corpo */}
+        <div className="absolute inset-0 sm:hidden bg-gradient-to-b from-eva-cream/55 via-eva-cream/15 to-transparent" />
+        {/* Overlay desktop — protege legibilidade da coluna de texto */}
+        <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-eva-cream/80 via-eva-cream/25 to-transparent" />
+        {/* Fade inferior — dissolve para o bg da próxima seção */}
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-slate-50" />
       </div>
 

@@ -21,13 +21,13 @@ export function FadeIn({
   duration = 0.6,
   once = true,
 }: FadeInProps) {
-  const { ref, isInView } = useInView({ threshold: 0.15, once });
+  const { ref, isInView } = useInView({ threshold: 0.1, once });
 
   const directionOffset = {
-    up: { y: 30 },
-    down: { y: -30 },
-    left: { x: 40 },
-    right: { x: -40 },
+    up: { y: 20 },
+    down: { y: -20 },
+    left: { x: 32 },
+    right: { x: -32 },
     none: {},
   };
 

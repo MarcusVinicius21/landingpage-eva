@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -11,6 +11,11 @@ const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#FAF7F2",
+  colorScheme: "light",
+};
 
 export const metadata: Metadata = {
   title: "EVA — Você não está sozinha",
@@ -57,6 +62,11 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "EVA",
   },
 };
 

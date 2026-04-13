@@ -150,14 +150,15 @@ export function Protection() {
                   "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.96) 80%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.32) 95%, rgba(0,0,0,0) 100%)",
               }}
             >
-              {/* h-full w-auto: height-constrained — preenche o painel de cima a baixo */}
+              {/* style inline garante h-full imune a override do Next.js Image */}
               <Image
                 src="/images/brand/mulher-saindo-card.png"
                 alt="Mulher usando o aplicativo EVA"
-                width={1856}
-                height={2304}
+                width={1400}
+                height={1738}
                 sizes="(max-width: 768px) 90vw, 45vw"
-                className="absolute bottom-0 right-0 h-full w-auto drop-shadow-[0_22px_34px_rgba(45,10,78,0.10)]"
+                style={{ height: "100%", width: "auto" }}
+                className="absolute bottom-0 right-0 drop-shadow-[0_22px_34px_rgba(45,10,78,0.10)]"
               />
 
               {/* wash difuso base */}

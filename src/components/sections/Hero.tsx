@@ -83,7 +83,7 @@ export function Hero() {
           </div>
 
           {/* Coluna do mockup */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end self-start">
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-center self-start">
             <div className="w-full max-w-[280px] sm:max-w-[310px] xl:max-w-[350px] relative lg:-translate-y-8 xl:-translate-y-10">
               {/* Glow orgânico — dois círculos fixos, não cápsula */}
               <div className="absolute top-[8%] left-1/2 -translate-x-1/2 w-[220px] h-[220px] bg-eva-purple-400/20 rounded-full blur-[60px] pointer-events-none -z-10" />

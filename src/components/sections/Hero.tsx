@@ -27,7 +27,7 @@ export function Hero() {
 
   return (
     <section className="relative isolate pt-32 pb-0 sm:pt-36 sm:pb-0 bg-eva-cream overflow-hidden">
-      {/* Arte de fundo — hero-background-soft-curve.webp */}
+      {/* Arte de fundo */}
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/hero/hero-background-soft-curve.webp"
@@ -38,7 +38,7 @@ export function Hero() {
           className="object-cover object-center sm:object-right-bottom"
         />
         {/* Overlay mobile */}
-        <div className="absolute inset-0 sm:hidden bg-gradient-to-b from-eva-cream/55 via-eva-cream/15 to-transparent" />
+        <div className="absolute inset-0 sm:hidden bg-gradient-to-b from-eva-cream/58 via-eva-cream/18 to-transparent" />
         {/* Overlay desktop */}
         <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-eva-cream/80 via-eva-cream/25 to-transparent" />
         {/* Fade inferior */}
@@ -46,84 +46,86 @@ export function Hero() {
       </div>
 
       <Container>
-        {/* ─── Carrossel mobile — visível apenas abaixo de sm (< 640px) ─── */}
-        <div className="sm:hidden mb-10">
-          <div className="mx-auto max-w-[420px]">
-            <div className="relative">
-              <div
-                ref={carouselRef}
-                onScroll={handleScroll}
-                className="flex overflow-x-auto snap-x snap-mandatory gap-0 [&::-webkit-scrollbar]:hidden"
-                style={{ scrollbarWidth: "none" }}
-              >
-                {/* Slide 1 — Mulher segurando o celular */}
-                <div className="min-w-full shrink-0 snap-center">
-                  <div className="relative aspect-[5/7] overflow-hidden rounded-[30px] border border-white/60 bg-gradient-to-br from-eva-lilac-100/70 via-eva-cream/65 to-eva-purple-300/15 shadow-[0_16px_42px_-18px_rgba(90,30,120,0.28)]">
-                    {/* Glow suave de fundo */}
-                    <div className="absolute inset-0 pointer-events-none">
-                      <div className="absolute left-1/2 top-[18%] h-[240px] w-[240px] -translate-x-1/2 rounded-full bg-eva-purple-300/16 blur-[70px]" />
-                      <div className="absolute left-[18%] bottom-[16%] h-[120px] w-[120px] rounded-full bg-eva-lilac-200/25 blur-[38px]" />
-                    </div>
-
-                    <Image
-                      src="/images/hero/hero-mobile-banner-woman.png"
-                      alt="Mulher usando o aplicativo EVA com segurança"
-                      fill
-                      priority
-                      sizes="(max-width: 639px) calc(100vw - 3rem), 100vw"
-                      className="object-contain object-bottom"
-                    />
-
-                    {/* Fade/curva inferior suave para não ficar com corte seco */}
-                    <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-eva-cream via-eva-cream/92 to-transparent" />
-                    <div className="absolute left-1/2 bottom-[-22px] h-16 w-[128%] -translate-x-1/2 rounded-[999px] bg-eva-cream/95 blur-xl" />
-                  </div>
+        {/* ─── Hero editorial mobile ─── */}
+        <div className="sm:hidden mb-8 -mx-4">
+          <div
+            ref={carouselRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {/* Slide 1 — mulher */}
+            <div className="min-w-full shrink-0 snap-center px-4">
+              <div className="relative h-[470px] overflow-hidden">
+                {/* Atmosfera de fundo */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute left-1/2 top-[16%] h-[260px] w-[260px] -translate-x-1/2 rounded-full bg-eva-purple-300/14 blur-[78px]" />
+                  <div className="absolute left-[12%] bottom-[18%] h-[120px] w-[120px] rounded-full bg-eva-lilac-200/20 blur-[42px]" />
+                  <div className="absolute right-[8%] top-[22%] h-[110px] w-[110px] rounded-full bg-eva-lilac-200/20 blur-[36px]" />
                 </div>
 
-                {/* Slide 2 — Mockup do app */}
-                <div className="min-w-full shrink-0 snap-center">
-                  <div className="relative aspect-[5/7] overflow-hidden rounded-[30px] border border-white/60 bg-gradient-to-br from-eva-lilac-100/70 via-eva-cream/65 to-eva-purple-300/15 shadow-[0_16px_42px_-18px_rgba(90,30,120,0.28)] flex items-center justify-center">
-                    {/* Glow */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="h-[240px] w-[240px] rounded-full bg-eva-purple-400/20 blur-[65px]" />
-                    </div>
+                <Image
+                  src="/images/hero/hero-mobile-banner-woman.png"
+                  alt="Mulher apresentando o aplicativo EVA"
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-contain object-center"
+                />
 
-                    <Image
-                      src="/images/hero/mockup-app-principal.png"
-                      alt="Interface do aplicativo EVA"
-                      width={800}
-                      height={1600}
-                      sizes="(max-width: 639px) 76vw, 320px"
-                      className="relative z-10 h-[88%] w-auto object-contain drop-shadow-[0_24px_45px_rgba(20,8,36,0.22)]"
-                    />
-
-                    {/* Base suave para integrar o mockup */}
-                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-eva-cream/72 to-transparent" />
-                  </div>
-                </div>
+                {/* Dissolve inferior editorial */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-eva-cream via-eva-cream/92 to-transparent" />
+                <div className="absolute left-1/2 bottom-[-18px] h-16 w-[132%] -translate-x-1/2 rounded-[999px] bg-eva-cream/95 blur-xl" />
               </div>
+            </div>
 
-              {/* Dots indicadores */}
-              <div className="flex justify-center gap-2.5 mt-4">
-                {[0, 1].map((i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => scrollToSlide(i)}
-                    aria-label={`Ir para slide ${i + 1}`}
-                    className={`transition-all duration-300 rounded-full ${
-                      activeSlide === i
-                        ? "w-6 h-[8px] bg-eva-purple-500"
-                        : "w-[8px] h-[8px] bg-eva-purple-200 hover:bg-eva-purple-300"
-                    }`}
+            {/* Slide 2 — mockup atual */}
+            <div className="min-w-full shrink-0 snap-center px-4">
+              <div className="relative h-[470px] overflow-hidden">
+                {/* Atmosfera */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="h-[260px] w-[260px] rounded-full bg-eva-purple-400/18 blur-[70px]" />
+                </div>
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute left-1/2 top-[58%] h-[140px] w-[140px] -translate-x-1/2 rounded-full bg-eva-lilac-200/22 blur-[44px]" />
+                </div>
+
+                <div className="relative z-10 flex h-full items-center justify-center">
+                  <Image
+                    src="/images/hero/mockup-app-principal.png"
+                    alt="Interface do aplicativo EVA"
+                    width={800}
+                    height={1600}
+                    sizes="(max-width: 639px) 78vw, 320px"
+                    className="h-[88%] w-auto object-contain drop-shadow-[0_26px_48px_rgba(25,10,40,0.20)]"
                   />
-                ))}
+                </div>
+
+                {/* Base suave */}
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-eva-cream/76 to-transparent" />
               </div>
             </div>
           </div>
+
+          {/* Dots */}
+          <div className="mt-3.5 flex justify-center gap-2.5 px-4">
+            {[0, 1].map((i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => scrollToSlide(i)}
+                aria-label={`Ir para slide ${i + 1}`}
+                className={`rounded-full transition-all duration-300 ${
+                  activeSlide === i
+                    ? "h-[8px] w-6 bg-eva-purple-500"
+                    : "h-[8px] w-[8px] bg-eva-lilac-100 hover:bg-eva-purple-300"
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* ─── Grid desktop — estrutura atual preservada ─── */}
+        {/* ─── Grid desktop — preservado ─── */}
         <div className="grid lg:grid-cols-2 gap-14 xl:gap-16 items-start">
           {/* Coluna de texto */}
           <div className="order-2 lg:order-1">
@@ -170,7 +172,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Coluna do mockup — oculta no mobile (< sm), visível em sm+ */}
+          {/* Coluna do mockup desktop */}
           <div className="order-1 lg:order-2 hidden sm:flex justify-center lg:justify-center self-start">
             <div className="w-full max-w-[280px] sm:max-w-[310px] xl:max-w-[350px] relative lg:-translate-y-8 xl:-translate-y-10">
               <div className="absolute top-[8%] left-1/2 -translate-x-1/2 w-[220px] h-[220px] bg-eva-purple-400/20 rounded-full blur-[60px] pointer-events-none -z-10" />

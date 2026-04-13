@@ -62,7 +62,7 @@ export function Protection() {
             </div>
           </div>
 
-          <div className="flex-1 relative w-full h-[520px] md:h-auto md:min-h-[680px] shrink-0 md:max-w-[44%] md:self-stretch">
+          <div className="flex-1 relative w-full h-[600px] md:h-auto md:min-h-[680px] shrink-0 md:max-w-[44%] md:self-stretch">
             {/* Base lilás de apoio */}
             <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-eva-lilac-100/68 via-white to-eva-purple-300/12 -z-10" />
 
@@ -140,14 +140,14 @@ export function Protection() {
               </g>
             </svg>
 
-            {/* Personagem — fill+cover+right-top: confiável em todos os browsers */}
+            {/* Personagem — fill+cover+object-top: centralizado horizontal, fade começa em 88% */}
             <div
               className="absolute inset-x-0 top-[-4%] bottom-0 z-20 pointer-events-none overflow-hidden"
               style={{
                 WebkitMaskImage:
-                  "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.96) 80%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.32) 95%, rgba(0,0,0,0) 100%)",
+                  "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 88%, rgba(0,0,0,0.72) 93%, rgba(0,0,0,0) 100%)",
                 maskImage:
-                  "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.96) 80%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.32) 95%, rgba(0,0,0,0) 100%)",
+                  "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 88%, rgba(0,0,0,0.72) 93%, rgba(0,0,0,0) 100%)",
               }}
             >
               <Image
@@ -155,7 +155,7 @@ export function Protection() {
                 alt="Mulher usando o aplicativo EVA"
                 fill
                 sizes="(max-width: 768px) 100vw, 44vw"
-                className="object-cover object-right-top drop-shadow-[0_22px_34px_rgba(45,10,78,0.10)]"
+                className="object-cover object-top drop-shadow-[0_22px_34px_rgba(45,10,78,0.10)]"
               />
 
               {/* wash difuso base */}

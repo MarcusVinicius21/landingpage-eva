@@ -14,7 +14,7 @@ export function Hero() {
       {/* Arte de fundo — hero-background-soft-curve.png */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/hero/hero-background-soft-curve.png"
+          src="/images/hero/hero-background-soft-curve.webp"
           alt=""
           fill
           sizes="100vw"

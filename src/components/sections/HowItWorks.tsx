@@ -1,14 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { HOW_IT_WORKS } from "@/lib/constants";
 
-const placeholders = [
-  "feature-foto-1.jpg",
-  "feature-foto-2.jpg",
-  "feature-foto-3.jpg",
-  "feature-foto-4.jpg",
+const featureImages = [
+  "/images/features/feature-foto-1.jpg",
+  "/images/features/feature-foto-2.jpg",
+  "/images/features/feature-foto-3.jpg",
+  "/images/features/feature-foto-4.jpg",
 ];
 
 export function HowItWorks() {
@@ -33,11 +33,12 @@ export function HowItWorks() {
             >
               {/* Imagem com overlay e título sobreposto */}
               <div className="relative aspect-square w-full overflow-hidden">
-                {/* Imagem: /public/images/features/{placeholder} — 800×800px */}
-                <ImagePlaceholder
-                  text={placeholders[index % placeholders.length]}
-                  aspectRatio="square"
-                  className="absolute inset-0 group-hover:scale-105 transition-transform duration-700 rounded-none border-0"
+                <Image
+                  src={featureImages[index % featureImages.length]}
+                  alt={step.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Degradê obrigatório */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/30 to-transparent pointer-events-none" />

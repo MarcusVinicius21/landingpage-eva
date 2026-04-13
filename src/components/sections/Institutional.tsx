@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { INSTITUTIONAL } from "@/lib/constants";
 
 export function Institutional() {
@@ -44,13 +44,16 @@ export function Institutional() {
         </div>
 
         {/* Imagem editorial widescreen */}
-        {/* Imagem: /public/images/brand/equipe-office.jpg — 1400×600px */}
         <div className="relative">
-          <ImagePlaceholder
-            text="equipe-office.jpg (1400x600)"
-            aspectRatio="widescreen"
-            className="w-full rounded-[40px] border border-eva-purple-100/30 shadow-[0_24px_48px_-12px_rgba(45,10,78,0.06)]"
-          />
+          <div className="relative aspect-video w-full rounded-[40px] overflow-hidden border border-eva-purple-100/30 shadow-[0_24px_48px_-12px_rgba(45,10,78,0.06)]">
+            <Image
+              src="/images/brand/equipe-office.jpg"
+              alt="Equipe do Projeto EVA"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
           {/* Caption sutil */}
           <p className="mt-4 text-center text-xs text-slate-300 font-light tracking-wide uppercase">
             Equipe do Projeto EVA

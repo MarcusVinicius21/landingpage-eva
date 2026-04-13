@@ -13,7 +13,11 @@ const outfit = Outfit({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#FAF7F2",
+  // Array com media query explícita — força o creme mesmo em dark mode Android
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FAF7F2" },
+    { media: "(prefers-color-scheme: dark)",  color: "#FAF7F2" },
+  ],
   colorScheme: "light",
 };
 

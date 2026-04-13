@@ -140,7 +140,7 @@ export function Protection() {
               </g>
             </svg>
 
-            {/* Personagem — preenche o painel em altura, cabeça quebra acima do card */}
+            {/* Personagem — fill+cover+right-top: confiável em todos os browsers */}
             <div
               className="absolute inset-x-0 top-[-4%] bottom-0 z-20 pointer-events-none overflow-hidden"
               style={{
@@ -150,15 +150,12 @@ export function Protection() {
                   "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.96) 80%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.32) 95%, rgba(0,0,0,0) 100%)",
               }}
             >
-              {/* style inline garante h-full imune a override do Next.js Image */}
               <Image
                 src="/images/brand/mulher-saindo-card.png"
                 alt="Mulher usando o aplicativo EVA"
-                width={1400}
-                height={1738}
-                sizes="(max-width: 768px) 90vw, 45vw"
-                style={{ height: "100%", width: "auto" }}
-                className="absolute bottom-0 right-0 drop-shadow-[0_22px_34px_rgba(45,10,78,0.10)]"
+                fill
+                sizes="(max-width: 768px) 100vw, 44vw"
+                className="object-cover object-right-top drop-shadow-[0_22px_34px_rgba(45,10,78,0.10)]"
               />
 
               {/* wash difuso base */}

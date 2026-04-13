@@ -140,9 +140,9 @@ export function Protection() {
               </g>
             </svg>
 
-            {/* Personagem maior, alinhada ao topo do título e à base do último card */}
+            {/* Personagem — preenche o painel em altura, cabeça quebra acima do card */}
             <div
-              className="absolute inset-x-[2%] top-[-2%] bottom-0 z-20 pointer-events-none overflow-hidden"
+              className="absolute inset-x-0 top-[-4%] bottom-0 z-20 pointer-events-none overflow-hidden"
               style={{
                 WebkitMaskImage:
                   "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.96) 80%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.32) 95%, rgba(0,0,0,0) 100%)",
@@ -150,15 +150,17 @@ export function Protection() {
                   "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0.96) 80%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.32) 95%, rgba(0,0,0,0) 100%)",
               }}
             >
+              {/* h-full w-auto: height-constrained — preenche o painel de cima a baixo */}
               <Image
                 src="/images/brand/mulher-saindo-card.png"
                 alt="Mulher usando o aplicativo EVA"
-                fill
-                sizes="(max-width: 768px) 100vw, 44vw"
-                className="object-contain object-right-bottom scale-[1.18] drop-shadow-[0_22px_34px_rgba(45,10,78,0.10)]"
+                width={1856}
+                height={2304}
+                sizes="(max-width: 768px) 90vw, 45vw"
+                className="absolute bottom-0 right-0 h-full w-auto drop-shadow-[0_22px_34px_rgba(45,10,78,0.10)]"
               />
 
-              {/* wash difuso para eliminar a leitura de linha reta */}
+              {/* wash difuso base */}
               <div className="absolute left-1/2 bottom-[-2%] -translate-x-1/2 w-[118%] h-24 rounded-full bg-white/88 blur-2xl" />
               <div className="absolute left-1/2 bottom-[-4%] -translate-x-1/2 w-[128%] h-20 rounded-full bg-slate-50/82 blur-3xl" />
             </div>
